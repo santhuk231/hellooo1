@@ -10,6 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="helloooFlow" doc:id="66f68c1e-e16e-4411-b9ca-459f8d810fe2" >
 		<http:listener doc:name="Listener" doc:id="3f7e4728-bb5b-4a64-aced-547a9d206727" config-ref="HTTP_Listener_config" path="/hello"/>
+		<logger level="INFO" doc:name=" start Logger" doc:id="321ce37b-7a50-4b4d-8ca4-c826cd314f4e" message="=============start flow================"/>
 		<ee:transform doc:name="Transform Message" doc:id="2bfe1a51-bb09-4711-a097-497cd3769e6d" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
@@ -20,5 +21,6 @@ output application/json
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+		<logger level="INFO" doc:name="EndLogger" doc:id="42be0c2a-931e-4a02-9927-732c7d7043dd" message="==============Ends flow============="/>
 	</flow>
 </mule>
